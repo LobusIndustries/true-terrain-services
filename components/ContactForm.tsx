@@ -18,14 +18,34 @@ const serviceOptions = [
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    // Simulate a brief delay to show loading state
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSubmitted(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/trueterrainservices@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -55,6 +75,11 @@ export default function ContactForm() {
             onSubmit={handleSubmit}
             className="bg-stone-800 rounded-2xl p-8 border border-stone-700 space-y-5"
           >
+            {/* Hidden FormSubmit config fields */}
+            <input type="hidden" name="_subject" value="New Estimate Request — True Terrain Services" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm font-medium text-stone-300 mb-1.5">
@@ -62,6 +87,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   required
+                  name="First Name"
                   type="text"
                   placeholder="John"
                   className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors"
@@ -73,6 +99,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   required
+                  name="Last Name"
                   type="text"
                   placeholder="Smith"
                   className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors"
@@ -87,6 +114,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   required
+                  name="Phone Number"
                   type="tel"
                   placeholder="(480) 555-0000"
                   className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors"
@@ -97,6 +125,7 @@ export default function ContactForm() {
                   Email Address
                 </label>
                 <input
+                  name="Email Address"
                   type="email"
                   placeholder="john@email.com"
                   className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors"
@@ -110,6 +139,7 @@ export default function ContactForm() {
               </label>
               <input
                 required
+                name="City / Zip Code"
                 type="text"
                 placeholder="Queen Creek, 85142"
                 className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors"
@@ -122,6 +152,7 @@ export default function ContactForm() {
               </label>
               <select
                 required
+                name="Service Needed"
                 defaultValue=""
                 className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors appearance-none"
               >
@@ -137,11 +168,18 @@ export default function ContactForm() {
                 Project Details <span className="text-stone-500 font-normal">(optional)</span>
               </label>
               <textarea
+                name="Project Details"
                 rows={4}
                 placeholder="Tell us a little about your project — size of area, current condition, what you're envisioning, any questions..."
                 className="w-full bg-stone-700 border border-stone-600 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-green-500 transition-colors resize-none"
               />
             </div>
+
+            {error && (
+              <p className="text-red-400 text-sm text-center">
+                Something went wrong. Please try again or call us at (480) 417-8385.
+              </p>
+            )}
 
             <button
               type="submit"
