@@ -5,9 +5,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
-              TT
-            </div>
+            <img src="/logo.png" alt="True Terrain Services" className="h-12 w-12 object-contain" />
             <div>
               <div className="font-bold text-white text-sm">True Terrain Services</div>
               <div className="text-xs text-stone-500">Queen Creek, Arizona</div>

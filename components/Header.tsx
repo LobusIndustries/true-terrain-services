@@ -10,14 +10,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
-              TT
-            </div>
-            <span className="font-bold text-gray-900 text-lg leading-tight">
-              True Terrain<br />
-              <span className="text-xs font-normal text-green-700 tracking-wide">SERVICES</span>
-            </span>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="True Terrain Services" className="h-12 w-12 object-contain" />
           </div>
 
           {/* Desktop Nav */}
