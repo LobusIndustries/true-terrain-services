@@ -39,7 +39,7 @@ export default function ServiceAreas() {
         </div>
 
         {/* Contact options */}
-        <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
           <a
             href="tel:4804178385"
             className="flex flex-col items-center gap-2 bg-white border border-stone-200 rounded-2xl p-6 hover:border-green-400 hover:shadow-md transition-all text-center group"
@@ -47,17 +47,6 @@ export default function ServiceAreas() {
             <span className="text-3xl">📞</span>
             <span className="font-semibold text-stone-700 group-hover:text-green-700 transition-colors text-sm">Call or Text</span>
             <span className="font-bold text-stone-900">(480) 417-8385</span>
-          </a>
-
-          <a
-            href="https://wa.me/14804178385"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-stone-200 rounded-2xl p-6 hover:border-green-400 hover:shadow-md transition-all text-center group"
-          >
-            <span className="text-3xl">💬</span>
-            <span className="font-semibold text-stone-700 group-hover:text-green-700 transition-colors text-sm">WhatsApp</span>
-            <span className="font-bold text-stone-900">+1 480-417-8385</span>
           </a>
 
           <a
