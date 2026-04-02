@@ -34,25 +34,36 @@ export default function About() {
             </ul>
           </div>
 
-          {/* Visual card */}
+          {/* Visual card with background image */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-green-800 to-stone-800 rounded-2xl p-8 text-white shadow-2xl">
-              {/* Desert landscape illustration */}
-              <div className="text-center mb-6">
-                <div className="text-7xl mb-2">🏜️</div>
-                <p className="text-green-200 text-sm font-medium">Arizona landscaping by True Terrain Services</p>
-              </div>
+            <div
+              className="rounded-2xl p-8 text-white shadow-2xl overflow-hidden"
+              style={{
+                backgroundImage: "url('/about-bg.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/55 rounded-2xl" />
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded-xl p-4 text-center backdrop-blur-sm">
-                  <div className="text-3xl font-extrabold text-amber-400">📍</div>
-                  <div className="text-sm font-semibold mt-1">Queen Creek</div>
-                  <div className="text-xs text-green-200 mt-0.5">Based & Serving the East Valley</div>
+              {/* Content on top of image */}
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <p className="text-white text-sm font-medium">Arizona landscaping by True Terrain Services</p>
                 </div>
-                <div className="bg-white/10 rounded-xl p-4 text-center backdrop-blur-sm">
-                  <div className="text-3xl font-extrabold text-amber-400">100%</div>
-                  <div className="text-sm font-semibold mt-1">Local AZ</div>
-                  <div className="text-xs text-green-200 mt-0.5">Your neighbors, your team</div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/10 rounded-xl p-4 text-center backdrop-blur-sm">
+                    <div className="text-3xl font-extrabold text-amber-400">📍</div>
+                    <div className="text-sm font-semibold mt-1">Queen Creek</div>
+                    <div className="text-xs text-green-200 mt-0.5">Based & Serving the East Valley</div>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4 text-center backdrop-blur-sm">
+                    <div className="text-3xl font-extrabold text-amber-400">100%</div>
+                    <div className="text-sm font-semibold mt-1">Local AZ</div>
+                    <div className="text-xs text-green-200 mt-0.5">Your neighbors, your team</div>
+                  </div>
                 </div>
               </div>
             </div>
