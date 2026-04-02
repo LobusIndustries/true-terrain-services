@@ -1,8 +1,16 @@
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-stone-800 via-stone-700 to-green-900 text-white pt-32 pb-20 px-4 overflow-hidden">
-      {/* Background texture overlay */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-400 via-transparent to-transparent pointer-events-none" />
+    <section
+      className="relative text-white pt-32 pb-20 px-4 overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-green-950/60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
         <div className="max-w-2xl">
