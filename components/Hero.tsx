@@ -3,8 +3,7 @@ export default function Hero() {
     <section
       className="relative text-white pt-32 pb-20 px-4 overflow-hidden"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')",
+        backgroundImage: "url('/hero.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
