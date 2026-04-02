@@ -10,13 +10,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <img src="/logo.png" alt="True Terrain Services" className="h-12 w-12 object-contain" />
             <span className="font-bold text-stone-900 text-lg leading-tight">
               True Terrain<br />
               <span className="text-xs font-semibold text-green-700 tracking-widest uppercase">Services</span>
             </span>
-          </div>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
